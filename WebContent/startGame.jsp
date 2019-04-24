@@ -11,6 +11,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+		<%!
+			public void adjust(int num) {
+				TestProcess.score += num;
+			}
+		%>
 		<%
 			TestProcess.score = 10;
 		%>
@@ -21,19 +26,27 @@
 		<font size="6" color="green">You are sick. But today we have a midterm. Would you cancel the midterm or still go? </font>
 		<br>
 		<br>
-		<input type="button" value="Screw it. Cancel it!" style="height:200px;width:400px;font-size:25px;white-space: pre-line;" onclick="wrongAnswer('scenario2.jsp')" /> 
-		<input type="button" value="No, I can't let my students down! I'm going!" name= "button2" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" onclick="correctAnswer('scenario2.jsp')" /> 
+		
+		<form action = "NextScenarioServlet" method = "post">
+			<input type="hidden" name="next_scenario" value="scenario2.jsp" />
+			<input type="hidden" name="isCorrect" value="false" />
+			<input type="submit" value="Screw it. Cancel it!" name= "button1" style="height:200px;width:400px;font-size:25px;white-space: pre-line;" /> 
+		</form>
+		
+		<form action = "NextScenarioServlet" method = "post">
+			<input type="hidden" name="next_scenario" value="scenario2.jsp" />
+			<input type="hidden" name="isCorrect" value="true" />
+			<input type="submit" value="No, I can't let my students down! I'm going!" name= "button2" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
+		</form>
 		
 		<script type="text/javascript">
  			function correctAnswer(pageURL){
  				alert("You are correct! Prof. Gustavo never gives up! (+5)");
- 				<%= "TestProcess.score += 5"%>
  				window.location.href = pageURL;
  			}
  			
  			function wrongAnswer(pageURL) {
  				alert("Wrong! Prof. Gustavo will never let us down! (-5)");
- 				<%=" TestProcess.score -= 0"%>
  				window.location.href = pageURL;
  			}
 		</script>
