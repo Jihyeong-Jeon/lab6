@@ -17,7 +17,7 @@ public class UserDAO {
 	private Connection conn = null;
 	
 	public UserDAO() {
-		driver 	= "oracle.jdbc.driver.OracleDriver"; //com.mysql.jdbc.Driver
+		driver 	= "oracle.jdbc.driver.OracleDriver";
 		url 	= "jdbc:oracle:thin:@claros.cs.purdue.edu:1524:strep";
 		user 	= "jeon71";
 		pass 	= "nDPnbsy6";
@@ -31,11 +31,10 @@ public class UserDAO {
 		}
 	}
 	
-	public ArrayList<NoticeEntity> selectAll() {
-		ArrayList<NoticeEntity> notices = new ArrayList<>();
+	public ArrayList<UserEntity> selectAll() {
+		ArrayList<UserEntity> users = new ArrayList<>();
 		
-		String sql = 
-				"SELECT * from TB_NOTICE";
+		String sql = "SELECT * from TB_Users order by SCORE desc";
 		
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -45,14 +44,10 @@ public class UserDAO {
 			rs = stmt.executeQuery();
 
 			while (rs.next()) {
-				NoticeEntity notice = new NoticeEntity();
-				notice.setNo(rs.getInt("NO"));
-				notice.setTitle(rs.getString("TITLE"));
-				notice.setContent(rs.getString("CONTENT"));
-				notice.setWriteDate(rs.getDate("WRITE_DATE"));
-				notice.setId(rs.getString("ID"));
-				notice.setHit(rs.getInt("HIT"));
-				notices.add(notice);
+				UserEntity user = new UserEntity();
+				user.setName(rs.getString("NAME"));
+				user.setScore(rs.getInt("SCORE"));
+				users.add(user);
 			}
 			
 		} catch (Exception e) {
@@ -64,7 +59,7 @@ public class UserDAO {
 			Utils.close(conn);
 		}
 		
-		return notices;
+		return users;
 	}
 }
 
