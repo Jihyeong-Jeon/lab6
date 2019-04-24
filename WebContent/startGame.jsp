@@ -1,12 +1,55 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@page import="com.dao.UserEntity"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.dao.UserDAO"%>
+<%@page import="com.test.TestProcess"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-Now game start
+		<%
+			TestProcess.score = 10;
+		%>
+		<font size="10" color="black">Scenario 1</font>
+		<br>
+		<img src="/lab6/img/gustsda.jpg" />   
+		<br>
+		<font size="6" color="green">You are sick. But today we have a midterm. Would you cancel the midterm or still go? </font>
+		<br>
+		<br>
+		<input type="button" value="Screw it. Cancel it!" style="height:200px;width:400px;font-size:25px;white-space: pre-line;" onclick="wrongAnswer('scenario2.jsp')" /> 
+		<input type="button" value="No, I can't let my students down! I'm going!" name= "button2" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" onclick="correctAnswer('scenario2.jsp')" /> 
+		
+		<script type="text/javascript">
+ 			function correctAnswer(pageURL){
+ 				alert("You are correct! Prof. Gustavo never gives up! (+5)");
+ 				<%= "TestProcess.score += 5"%>
+ 				window.location.href = pageURL;
+ 			}
+ 			
+ 			function wrongAnswer(pageURL) {
+ 				alert("Wrong! Prof. Gustavo will never let us down! (-5)");
+ 				<%=" TestProcess.score -= 0"%>
+ 				window.location.href = pageURL;
+ 			}
+		</script>
+		<!-- <button style="height:200px;width:300px;font-size : 25px">Screw it. Cancel it!</button> 
+		<button style="height:200px;width:300px;font-size : 25px">No, I can't let my students down! I am going!</button>-->
+		<br>
+		<br>
+		<font size="5" color="red">Name: <%=TestProcess.name%> Current score: <%=TestProcess.score%></font>
+		
+
+		<!-- 
+		<input type="submit" 
+      	 value="HOME" 
+      	 onclick="goHome()" 
+       style="font-size : 20px; width: 100%; height: 100px;" /> 
+		<input type="button" value="Screw it. Cancel it!">
+		<input type="button" value="No I can't let my students down! I am going!"> -->
 </body>
 </html>

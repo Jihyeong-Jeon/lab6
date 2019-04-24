@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.dao.UserDAO;
 import com.dao.UserEntity;
+import com.test.TestProcess;
 
 /**
  * Servlet implementation class ValidationServlet
@@ -62,6 +63,7 @@ public class ValidationServlet extends HttpServlet {
 			out.println("location='main.jsp';");
 			out.println("</script>");
 		} else { //continue if there is no same user name
+			TestProcess.name = name;
 			out.println("<script type=\"text/javascript\">");
 			out.println("location='startGame.jsp';");
 			out.println("</script>");
