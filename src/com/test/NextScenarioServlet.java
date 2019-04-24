@@ -40,6 +40,7 @@ public class NextScenarioServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String nextScenario = request.getParameter("next_scenario");
 		String iscorrect = request.getParameter("isCorrect");
+		String message = request.getParameter("message");
 		boolean isCorrect = Boolean.parseBoolean(iscorrect);
 		
 		PrintWriter out = response.getWriter();
@@ -47,13 +48,13 @@ public class NextScenarioServlet extends HttpServlet {
 		if (isCorrect) {
 			TestProcess.score += 5;
 			out.println("<script type=\"text/javascript\">");
-			out.println("alert('You are correct! Prof. Gustavo never gives up! (+5)');");
+			out.println("alert('" + message + "');");
 			out.println("location='" + nextScenario + "';");
 			out.println("</script>");
 		} else {
 			TestProcess.score -= 5;
 			out.println("<script type=\"text/javascript\">");
-			out.println("alert('Wrong! Prof. Gustavo will never let us down! (-5)');");
+			out.println("alert('" + message + "');");
 			out.println("location='" + nextScenario + "';");
 			out.println("</script>");
 		}

@@ -30,12 +30,14 @@
 		<form action = "NextScenarioServlet" method = "post">
 			<input type="hidden" name="next_scenario" value="scenario2.jsp" />
 			<input type="hidden" name="isCorrect" value="false" />
+			<input type="hidden" name="message" value="Wrong! Prof. Gustavo will never let us down! (-5)" />
 			<input type="submit" value="Screw it. Cancel it!" name= "button1" style="height:200px;width:400px;font-size:25px;white-space: pre-line;" /> 
 		</form>
 		
 		<form action = "NextScenarioServlet" method = "post">
 			<input type="hidden" name="next_scenario" value="scenario2.jsp" />
 			<input type="hidden" name="isCorrect" value="true" />
+			<input type="hidden" name="message" value="You are correct! Prof. Gustavo never gives up! (+5)" />
 			<input type="submit" value="No, I can't let my students down! I'm going!" name= "button2" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
 		</form>
 		
