@@ -12,6 +12,8 @@
 <body>
 
 <%-- Score Board --%>
+<font size="10" color="red">Gustavo's Life Simulator</font>
+<br>
 Score Board
 <table border="1">
 	<tr>
@@ -43,7 +45,7 @@ Score Board
 
 <%-- Game Start And User Id Validation --%>
 <form action = "ValidationServlet" method = "post">
-	<p>Name : <input type="text" name = "name"> </p>
+	<p>Name : <input type="text" name = "name" value = ""> </p>
 	<input type="submit" value = "Game Start">
 </form>
 

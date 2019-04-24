@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class UserDAO {
@@ -60,6 +61,23 @@ public class UserDAO {
 		}
 		
 		return users;
+	}
+	
+	public void insert(String name, int score) {
+		String sql_record = "insert into TB_Users values(\'" + name + "\', " + score + ")";
+        Statement stmt = null;
+		
+		try {
+			stmt = conn.createStatement();
+			stmt.executeUpdate(sql_record);		
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			Utils.close(stmt);
+			Utils.close(conn);
+		}
+		
 	}
 }
 

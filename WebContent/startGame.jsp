@@ -28,7 +28,7 @@
 		<br>
 		
 		<form action = "NextScenarioServlet" method = "post">
-			<input type="hidden" name="next_scenario" value="scenario2.jsp" />
+			<input type="hidden" name="next_scenario" value="scenarioEnd.jsp" />
 			<input type="hidden" name="isCorrect" value="false" />
 			<input type="hidden" name="message" value="Wrong! Prof. Gustavo will never let us down! (-5)" />
 			<input type="submit" value="Screw it. Cancel it!" name= "button1" style="height:200px;width:400px;font-size:25px;white-space: pre-line;" /> 

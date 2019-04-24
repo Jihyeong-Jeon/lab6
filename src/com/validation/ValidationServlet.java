@@ -43,6 +43,14 @@ public class ValidationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("name");
+		PrintWriter out = response.getWriter();
+		
+		if(name.equalsIgnoreCase("")) {
+			out.println("<script type=\"text/javascript\">");
+			out.println("alert('Name can't be empty! Please write your name!');");
+			out.println("location='main.jsp';");
+			out.println("</script>");
+		}
 
 		UserDAO dao = new UserDAO();
 		ArrayList<UserEntity> userList = dao.selectAll();
@@ -55,7 +63,7 @@ public class ValidationServlet extends HttpServlet {
 			}
 		}
 		
-		PrintWriter out = response.getWriter();
+
 		
 		if(foundName) { // error message and redirect back to the main if there is same user name exists 
 			out.println("<script type=\"text/javascript\">");
