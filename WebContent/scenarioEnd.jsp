@@ -15,7 +15,7 @@
 			UserDAO dao = new UserDAO();
 			dao.insert(TestProcess.name, TestProcess.score);
 		%>
-		Congratulation <%= TestProcess.name %>!
+		Congratulation <%= TestProcess.name %> !!
 		<br>
 		Your score: <%= TestProcess.score %>
 		<br>

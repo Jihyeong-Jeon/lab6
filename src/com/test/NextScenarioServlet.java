@@ -38,6 +38,7 @@ public class NextScenarioServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
 		String nextScenario = request.getParameter("next_scenario");
 		String iscorrect = request.getParameter("isCorrect");
 		String message = request.getParameter("message");

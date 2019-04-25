@@ -64,7 +64,8 @@ public class UserDAO {
 	}
 	
 	public void insert(String name, int score) {
-		String sql_record = "insert into TB_Users values(\'" + name + "\', " + score + ")";
+		System.out.println("이름:" + name);
+		String sql_record = "insert into TB_Users values(N\'" + name + "\', " + score + ")";
         Statement stmt = null;
 		
 		try {

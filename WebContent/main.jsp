@@ -14,7 +14,11 @@
 <%-- Score Board --%>
 <font size="10" color="red">Gustavo's Life Simulator</font>
 <br>
-Score Board
+<br>
+<img src="/lab6/img/gustavo.jpg" /> 
+<br>
+<font size="5" color="blue">Ranking</font>
+<br>
 <table border="1">
 	<tr>
 		<th>Rank</th>
@@ -33,9 +37,9 @@ Score Board
 		}
 %>
 	<tr>
-		<td><%= count %></td>
-		<td><%= user.getName() %></td>
-		<td><%= user.getScore() %></td>
+		<td WIDTH="200"><%= count %></td>
+		<td WIDTH="200"><%= user.getName() %></td>
+		<td WIDTH="200"><%= user.getScore() %></td>
 	</tr>
 <% 
 	prev_score = user.getScore();
@@ -46,7 +50,7 @@ Score Board
 <%-- Game Start And User Id Validation --%>
 <form action = "ValidationServlet" method = "post">
 	<p>Name : <input type="text" name = "name" value = ""> </p>
-	<input type="submit" value = "Game Start">
+	<input type="submit" value = "Game Start" style="height:100px;width:200px;font-size:25px;" >
 </form>
 
 
