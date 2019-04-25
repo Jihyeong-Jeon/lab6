@@ -11,6 +11,10 @@
 <title>Finish</title>
 </head>
 <body>
+		<font size="8" color="green">Thank you for playing!</font>
+		<br>
+		<img src="/lab6/img/grr_end.jpg" />  
+		<br>
 		<%
 			UserDAO dao = new UserDAO();
 			dao.insert(TestProcess.name, TestProcess.score);

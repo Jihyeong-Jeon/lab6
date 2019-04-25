@@ -11,61 +11,36 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<%!
-			public void adjust(int num) {
-				TestProcess.score += num;
-			}
-		%>
 		<%
 			TestProcess.score = 10;
 		%>
 		<font size="10" color="black">Scenario 1</font>
 		<font size="5" color="red">Name: <%=TestProcess.name%> Current score: <%=TestProcess.score%></font>
 		<br>
-		<img src="/lab6/img/gustsda.jpg" />   
+		<img src="/lab6/img/grr_bday.jpg" />   
 		<br>
-		<font size="6" color="green">You are sick. But today we have a midterm. Would you still go or cancel it?</font>
+		<font size="6" color="green">Happy birthday! Now you are 1 year old! What do you want for the present?</font>
 		<br>
 		<br>
-		
 		<form action = "NextScenarioServlet" method = "post">
-			<input type="hidden" name="next_scenario" value="scenarioEnd.jsp" />
+			<input type="hidden" name="next_scenario" value="scenario2.jsp" />
 			<input type="hidden" name="isCorrect" value="false" />
-			<input type="hidden" name="message" value="Wrong! Prof. Gustavo will never let us down! (-5)" />
-			<input type="submit" value="Screw it. Cancel it!" name= "button1" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
+			<input type="hidden" name="message" value="You are now 1 year old! You can\'t even read! (-5)" />
+			<input type="submit" value="I want a book 'The C Programming Language' wrote by Dennis Ritchie!" name= "button1" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
 		</form>
-		
 		<form action = "NextScenarioServlet" method = "post">
 			<input type="hidden" name="next_scenario" value="scenario2.jsp" />
 			<input type="hidden" name="isCorrect" value="true" />
-			<input type="hidden" name="message" value="You are correct! Prof. Gustavo never gives up! (+5)" />
-			<input type="submit" value="No, I can't let my students down! I'm going!" name= "button2" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
+			<input type="hidden" name="message" value="You are correct! Prof. Gustavo\'s love towards computer started from here! (+5)" />
+			<input type="submit" value="I want a computer!" name= "button2" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
 		</form>
-		
-		<script type="text/javascript">
- 			function correctAnswer(pageURL){
- 				alert("You are correct! Prof. Gustavo never gives up! (+5)");
- 				window.location.href = pageURL;
- 			}
- 			
- 			function wrongAnswer(pageURL) {
- 				alert("Wrong! Prof. Gustavo will never let us down! (-5)");
- 				window.location.href = pageURL;
- 			}
-		</script>
-		<!-- <button style="height:200px;width:300px;font-size : 25px">Screw it. Cancel it!</button> 
-		<button style="height:200px;width:300px;font-size : 25px">No, I can't let my students down! I am going!</button>-->
+		<form action = "NextScenarioServlet" method = "post">
+			<input type="hidden" name="next_scenario" value="scenario2.jsp" />
+			<input type="hidden" name="isCorrect" value="false" />
+			<input type="hidden" name="message" value="Wrong! Prof. Gustavo was able to code when he was 6 months old. (-5)" />
+			<input type="submit" value="I am just 1 year old. I don't even know what I'm thinking!" name= "button3" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
+		</form>
 		<br>
 		<br>
-		
-		
-
-		<!-- 
-		<input type="submit" 
-      	 value="HOME" 
-      	 onclick="goHome()" 
-       style="font-size : 20px; width: 100%; height: 100px;" /> 
-		<input type="button" value="Screw it. Cancel it!">
-		<input type="button" value="No I can't let my students down! I am going!"> -->
 </body>
 </html>
