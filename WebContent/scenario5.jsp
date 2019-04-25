@@ -14,34 +14,22 @@
 		<font size="10" color="black">Scenario 5</font>
 		<font size="5" color="red">Name: <%=TestProcess.name%> Current score: <%=TestProcess.score%></font>
 		<br>
-		<img src="/lab6/img/grr_baby.jpg" />   
+		<img src="/lab6/img/grr_admitted.jpg" />   
 		<br>
-		<font size="6" color="green">You got married! How many babies do you want?</font>
+		<font size="6" color="green">Your son got admitted to Purdue CS and Harvard Law school! Where would you make him go?</font>
 		<br>
 		<br>
 		<form action = "NextScenarioServlet" method = "post">
 			<input type="hidden" name="next_scenario" value="scenario6.jsp" />
 			<input type="hidden" name="isCorrect" value="false" />
-			<input type="hidden" name="message" value=" (-5)" />
-			<input type="submit" value="0" name= "button1" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
-		</form>
-		<form action = "NextScenarioServlet" method = "post">
-			<input type="hidden" name="next_scenario" value="scenario6.jsp" />
-			<input type="hidden" name="isCorrect" value="false" />
-			<input type="hidden" name="message" value=" (-5)" />
-			<input type="submit" value="1" name= "button2" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
-		</form>
-		<form action = "NextScenarioServlet" method = "post">
-			<input type="hidden" name="next_scenario" value="scenario6.jsp" />
-			<input type="hidden" name="isCorrect" value="false" />
-			<input type="hidden" name="message" value="(-5)" />
-			<input type="submit" value="2" name= "button3" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
+			<input type="hidden" name="message" value="I know you are not even going to choose Purdue! (-5)" />
+			<input type="submit" value="Of course our prestigious Purdue CS! Go boilerMaker!" name= "button1" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
 		</form>
 		<form action = "NextScenarioServlet" method = "post">
 			<input type="hidden" name="next_scenario" value="scenario6.jsp" />
 			<input type="hidden" name="isCorrect" value="true" />
-			<input type="hidden" name="message" value="(+5)" />
-			<input type="submit" value="5" name= "button4" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
+			<input type="hidden" name="message" value="You are very realistic! (+5)" />
+			<input type="submit" value="You've gotta kidding me. Of course Harvard!" name= "button2" style="height:200px;width:600px;font-size:25px;white-space: pre-line;" /> 
 		</form>
 		<br>
 		<br>
