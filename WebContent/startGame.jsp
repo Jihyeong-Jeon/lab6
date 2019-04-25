@@ -20,6 +20,7 @@
 			TestProcess.score = 10;
 		%>
 		<font size="10" color="black">Scenario 1</font>
+		<font size="5" color="red">Name: <%=TestProcess.name%> Current score: <%=TestProcess.score%></font>
 		<br>
 		<img src="/lab6/img/gustsda.jpg" />   
 		<br>
@@ -56,7 +57,7 @@
 		<button style="height:200px;width:300px;font-size : 25px">No, I can't let my students down! I am going!</button>-->
 		<br>
 		<br>
-		<font size="5" color="red">Name: <%=TestProcess.name%> Current score: <%=TestProcess.score%></font>
+		
 		
 
 		<!-- 
