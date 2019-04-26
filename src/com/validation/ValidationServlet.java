@@ -44,6 +44,8 @@ public class ValidationServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		String name = request.getParameter("name");
+		String pw = request.getParameter("pw");
+		int password = Integer.parseInt(pw);
 		PrintWriter out = response.getWriter();
 		
 		if(name.equalsIgnoreCase("")) {
@@ -56,23 +58,35 @@ public class ValidationServlet extends HttpServlet {
 		UserDAO dao = new UserDAO();
 		ArrayList<UserEntity> userList = dao.selectAll();
 		boolean foundName = false;
+		int user_password = -1;
 		
 		for (UserEntity user : userList) {
 			if(user.getName().equalsIgnoreCase(name)) {
 				foundName = true;
+				user_password = user.getPassword();
 				break;
 			}
 		}
 		
 
 		
-		if(foundName) { // error message and redirect back to the main if there is same user name exists 
-			out.println("<script type=\"text/javascript\">");
-			out.println("alert('Name already exists! Please use another name.');");
-			out.println("location='main.jsp';");
-			out.println("</script>");
-		} else { //continue if there is no same user name
+		if(foundName) { //if pw is correct proceed game if not redirect to the main
+			if(user_password == password) {
+				TestProcess.name = name;
+				TestProcess.alreadyUser = true;
+				out.println("<script type=\"text/javascript\">");
+				out.println("location='startGame.jsp';");
+				out.println("</script>");
+			} else {
+				out.println("<script type=\"text/javascript\">");
+				out.println("alert('Incorrect password!');");
+				out.println("location='main.jsp';");
+				out.println("</script>");
+			}
+		} else { //create new account with pw
 			TestProcess.name = name;
+			TestProcess.newPW = password;
+			TestProcess.alreadyUser = false;
 			out.println("<script type=\"text/javascript\">");
 			out.println("location='startGame.jsp';");
 			out.println("</script>");

@@ -48,6 +48,7 @@ public class UserDAO {
 				UserEntity user = new UserEntity();
 				user.setName(rs.getString("NAME"));
 				user.setScore(rs.getInt("SCORE"));
+				user.setPassword(rs.getInt("PASSWORD"));
 				users.add(user);
 			}
 			
@@ -63,9 +64,9 @@ public class UserDAO {
 		return users;
 	}
 	
-	public void insert(String name, int score) {
+	public void insert(String name, int score, int password) {
 		System.out.println("이름:" + name);
-		String sql_record = "insert into TB_Users values(N\'" + name + "\', " + score + ")";
+		String sql_record = "insert into TB_Users values(N\'" + name + "\', " + score + ", " + password + ")";
         Statement stmt = null;
 		
 		try {
@@ -77,8 +78,23 @@ public class UserDAO {
 		} finally {
 			Utils.close(stmt);
 			Utils.close(conn);
-		}
+		} //update TB_Users set score = 100 where name = 'what';	
+	}
+	
+	public void update(String name, int score) {
+		String sql_record = "update TB_Users set score =" + score + " where name = \'" + name + "\'";
+        Statement stmt = null;
 		
+		try {
+			stmt = conn.createStatement();
+			stmt.executeUpdate(sql_record);		
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		} finally {
+			Utils.close(stmt);
+			Utils.close(conn);
+		} 
 	}
 }
 

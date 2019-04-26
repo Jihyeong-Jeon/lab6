@@ -3,6 +3,7 @@ package com.dao;
 public class UserEntity {
 	private String name;
 	private int score;
+	private int password;
 	
 	public String getName() {
 		return name;
@@ -15,6 +16,12 @@ public class UserEntity {
 	}
 	public void setScore(int score) {
 		this.score = score;
+	}
+	public int getPassword() {
+		return password;
+	}
+	public void setPassword(int password) {
+		this.password = password;
 	}
 }
 

@@ -49,7 +49,7 @@
 
 <%-- Game Start And User Id Validation --%>
 <form action = "ValidationServlet" method = "post">
-	<p>Name : <input type="text" name = "name" value = ""> </p>
+	<p>Name : <input type="text" name = "name" value = ""> Password : <input type="password" name = "pw" value = ""> Type anything if you don't have an account </p>
 	<input type="submit" value = "Game Start" style="height:100px;width:200px;font-size:25px;" >
 </form>
 

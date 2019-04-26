@@ -17,7 +17,12 @@
 		<br>
 		<%
 			UserDAO dao = new UserDAO();
-			dao.insert(TestProcess.name, TestProcess.score);
+			if(TestProcess.alreadyUser) {
+				dao.update(TestProcess.name, TestProcess.score);
+			} else {
+				dao.insert(TestProcess.name, TestProcess.score, TestProcess.newPW);
+			}
+			TestProcess.alreadyUser = false;
 		%>
 		Congratulation <%= TestProcess.name %> !!
 		<br>
